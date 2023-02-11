@@ -1,7 +1,7 @@
 package com.tictactoe;
 import java.util.Scanner;
 public class TicTacToe {
-    char gameBoard[] = null;-[]
+    char gameBoard[] = null;
     char playerLetter = '\0';
     char computerLetter = '\0';
     String winner = null;
