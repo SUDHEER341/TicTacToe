@@ -1,20 +1,23 @@
 package com.tictactoe;
-import java.util.Scanner;
 
+
+import java.util.Random;
+import java.util.Scanner;
 public class TicTacToe {
-    static char[] board = new char[10];
+    static char[] board = new char[10];  //taking array
     static char player, computer;
     private static int playLocation;
-    public static Scanner scannerObject = new Scanner(System.in);
+    public static Scanner scannerObject = new Scanner(System.in); //creating scanner object
 
 
     public static void createBoard()
     {
-        for (int index = 1; index < 10; index++)
+        for (int index = 1; index < 10; index++)      //Initalize
         {
             board[index] = ' ';
         }
     }
+
 
     public static void getPlayerChoice()
     {
@@ -63,11 +66,26 @@ public class TicTacToe {
             return false;
         }
     }
+   
+    public static void checkToss() {
+        Random random = new Random();
+        int tossResult = random.nextInt(2)+1;
+        System.out.println("\nChoose 1 for Heads or 2 for Tails");
+        int coinSelect = scannerObject.nextInt();
+
+        if (coinSelect == tossResult) {
+            System.out.println("\nPlayer Won The Toss! Player Starts");
+        }else {
+            System.out.println("\nComputer Won The Toss! Computer Starts");
+        }
+    }
+
 
     public static void main(String[] args)
     {
 
         System.out.println("Welcome To Tic Tac Toe");
+        checkToss();
         createBoard();
         getPlayerChoice();
         showBoard();
