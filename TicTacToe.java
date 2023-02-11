@@ -2,7 +2,6 @@ package com.tictactoe;
 import java.util.Scanner;
 
 public class TicTacToe {
-    int i;
     static char[] board = new char[10];
     static char player, computer;
     private static int playLocation;
@@ -17,12 +16,11 @@ public class TicTacToe {
         }
     }
 
-
     public static void getPlayerChoice()
     {
 
         System.out.print("select X or O : ");
-        player = scannerObject.next().toUpperCase().charAt(0);
+        player = Character.toUpperCase(scannerObject.next().charAt(0));
 
         if (player == 'X')
             computer = 'O';
@@ -32,8 +30,6 @@ public class TicTacToe {
         System.out.println("Computer's choice is : " + computer);
     }
 
-
-    // Displaying the tictactoe game board
 
     public static void showBoard()
     {
@@ -59,14 +55,24 @@ public class TicTacToe {
         }
     }
 
+
+    public static boolean isEmpty() {
+        if (board[playLocation] == ' ') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static void main(String[] args)
     {
 
-        System.out.println("Welcome To Tic Tac Toe game");
+        System.out.println("Welcome To Tic Tac Toe");
         createBoard();
         getPlayerChoice();
         showBoard();
         userMove();
+        isEmpty();
 
     }
 }
